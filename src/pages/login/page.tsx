@@ -23,8 +23,8 @@ export const Login = () => {
       });
       console.log(response)
       const access_token = response?.data.access_token;
-      Cookies.set("access_token", access_token, { expires: 7 });
       navigate("/");
+      Cookies.set("access_token", access_token, { expires: 7 });
       toastSuccess("Login successfuly");
     } catch (error) {
       toastError((error as any).response.data.detail);

@@ -2,10 +2,8 @@ import { useState } from "react";
 import Button from "../../components/button";
 import Textfield from "../../components/textfield";
 import { toastError, toastSuccess } from "../../components/toast";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import { post } from "../../api/api";
-import { Link } from "react-router-dom";
 
 export const Register = () => {
   const navigate = useNavigate();

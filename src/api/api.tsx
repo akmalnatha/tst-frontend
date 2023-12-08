@@ -6,7 +6,7 @@ export const post = async (
   api: string,
   form: any
 ): Promise<AxiosResponse<any, any>> => {
-  return await axios.post(url + api, form, {headers: {"Content-Type": "application/json",}});
+  return await axios.post(url + api, form, {headers: {"Content-Type": "application/x-www-form-urlencoded",}});
 };
 
 export const postWithAuth = async (
