@@ -7,6 +7,10 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Login from "./pages/login/page";
+import Dashboard from "./pages/dashboard/page";
+import Cookies from "js-cookie";
+import UserProvider from "./context/userContext";
+import Register from "./pages/register/page";
 // import Navbar from "./components/navbar";
 // import Login from "./pages/login/page";
 // import Cookies from "js-cookie";
@@ -20,20 +24,19 @@ import Login from "./pages/login/page";
 
 const router = createBrowserRouter([{ path: "*", Component: Root }]);
 
-// const ProtectedRoute = () => {
-//   const token = Cookies.get("token_simentel");
+const ProtectedRoute = () => {
+  const token = Cookies.get("access_token");
 
-//   if (!token) {
-//     return <Navigate to="/login" replace />;
-//   }
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
 
-//   return (
-//     <>
-//       <Navbar />
-//       <Outlet />
-//     </>
-//   );
-// };
+  return (
+      <UserProvider>
+        <Outlet />
+      </UserProvider>
+  );
+};
 
 export default function App() {
   return <RouterProvider router={router} />;
@@ -41,24 +44,14 @@ export default function App() {
 
 function Root() {
   return (
-    // <Routes>
-    //   <Route path="/login" element={<Login />} />
-    //   <Route path="*" element={<Dummy title={"Not Found"} />} />
-    //   <Route element={<ProtectedRoute />}>
-    //     <Route path="/" element={<Dashboard/>} />
-    //     <Route path="/room">
-    //       <Route path="" element={<ListRoom />} />
-    //       <Route path="add" element={<AddRoom />} />
-    //       <Route path="detail/:idx">
-    //         <Route path="" element={<DetailRoom />} />
-    //         <Route path="edit" element={<EditRoom />} />
-    //       </Route>
-    //     </Route>
-    //     <Route path="/maintenance" element={<MaintenancePage />} />
-    //     <Route path="/staff" element={<DaftarUser />} />
-    //   </Route>
-    // </Routes>
-    <Login/>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<Dummy title={"Not Found"} />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<Dashboard />} />
+      </Route>
+    </Routes>
   );
 }
 

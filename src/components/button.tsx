@@ -27,7 +27,7 @@ function Button({
       onSubmit={onSubmit}
       className={`${
         icon ? "rounded-[6px] px-2" : "rounded-[12px] px-8"
-      } text-[12px] md:text-[16px] font-semibold py-2 ${
+      } text-[12px] md:text-[16px] font-semibold py-2 w-full ${
         disable
           ? "bg-mono-grey"
           : color == "primary"
