@@ -5,12 +5,11 @@ import Button from "../../components/button";
 import Textfield from "../../components/textfield";
 import { toastError, toastSuccess } from "../../components/toast";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router";
 import Navbar from "../../components/navbar";
 import Dropdown from "../../components/dropdown";
 import HolidayCard from "../../components/holidayCard";
 import KeretaCard from "../../components/keretaCard";
-import { get, getWithAuth, postWithAuth, postWithAuthJson } from "../../api/api";
+import { get, getWithAuth, postWithAuthJson } from "../../api/api";
 import LoadingPage from "../../components/loadingPage";
 import Modal from "../../components/modal";
 import { UserContext } from "../../context/userContext";
@@ -18,7 +17,6 @@ import moment from "moment";
 
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingSearch, setIsLoadingSearch] = useState<boolean>(false);
@@ -54,7 +52,7 @@ export const Dashboard = () => {
   });
 
   const peerContainerRef = useRef<HTMLDivElement>(null);
-  const [containerHeight, setContainerHeight] = useState<number>(0);
+  // const [containerHeight, setContainerHeight] = useState<number>(0);
 
   const optionsTipe = [
     { label: "Antar-Kota", value: "Antar-Kota" },
@@ -181,25 +179,25 @@ export const Dashboard = () => {
     getHoliday();
   }, []);
 
-  useEffect(() => {
-    const updateContainerSize = () => {
-      if (peerContainerRef.current) {
-        setContainerHeight(peerContainerRef.current.offsetHeight);
-      }
-    };
+  // useEffect(() => {
+  //   const updateContainerSize = () => {
+  //     if (peerContainerRef.current) {
+  //       setContainerHeight(peerContainerRef.current.offsetHeight);
+  //     }
+  //   };
 
     
-    // Initial setup
-    updateContainerSize();
+  //   // Initial setup
+  //   updateContainerSize();
 
-    // Event listener for window resize
-    window.addEventListener("resize", updateContainerSize);
+  //   // Event listener for window resize
+  //   window.addEventListener("resize", updateContainerSize);
 
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", updateContainerSize);
-    };
-  }, []);
+  //   // Cleanup the event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener("resize", updateContainerSize);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const filteredKereta = keretaAll.filter(

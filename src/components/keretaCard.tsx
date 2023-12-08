@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import { MouseEventHandler} from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Button from "./button";
 

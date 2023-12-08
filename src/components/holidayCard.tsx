@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BiCategory } from "react-icons/bi";
 import { MdOutlineAttachMoney, MdLocationOn } from "react-icons/md";
 import Maps from "./maps";
