@@ -57,8 +57,8 @@ function Navbar({ active, open }: NavbarProps) {
               <LuLayoutDashboard />
               <p className="text-[20px]">Dashboard</p>
             </NavLink>
-            <NavLink
-              to="/tiket"
+            <a
+              href="https://holi-train.grayrock-b84a6c08.australiaeast.azurecontainerapps.io/docs"
               className={`${
                 active == 1
                   ? "border-l-4 border-purple-secondary text-purple-secondary box-border font-bold px-[20px]"
@@ -67,9 +67,9 @@ function Navbar({ active, open }: NavbarProps) {
             >
               <IoTicket />
               <p className="text-[20px]">Tiket</p>
-            </NavLink>
-            <NavLink
-              to="/profile"
+            </a>
+            <a
+              href="https://holi-train.grayrock-b84a6c08.australiaeast.azurecontainerapps.io/docs"
               className={`${
                 active == 2
                   ? "border-l-4 border-purple-secondary text-purple-secondary box-border font-bold px-[20px]"
@@ -78,13 +78,13 @@ function Navbar({ active, open }: NavbarProps) {
             >
               <BsPerson />
               <p className="text-[20px]">Profile</p>
-            </NavLink>
+            </a>
           </div>
         </div>
         <div className="flex flex-col gap-[15px]">
           <NavLink
             to="/login"
-            className={`text-[24px] px-[24px] py-[8px] text-error flex items-center gap-4 cursor-pointer`}
+            className={`text-[24px] px-[24px] py-[8px] text-red-500 flex items-center gap-4 cursor-pointer`}
           >
             <BiLogOut />
             <p className="text-[20px] font-bold">Logout</p>
